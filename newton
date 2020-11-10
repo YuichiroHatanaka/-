@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <math.h>
+
+double x, y;
+double fa, dfa;
+double nx;
+double a, b, c;
+int i = 0;
+
+int main(void) {
+	
+	printf("f(x) = ax2 + bx + c\n");
+	printf("a = ");
+	scanf("%lf", &a);
+	printf("b = ");
+	scanf("%lf", &b);
+	printf("c = ");
+	scanf("%lf", &c);
+	printf("f(x) = %lfx2 + %lfx - %lf\n", a, b, c);
+	printf("x = ");
+	scanf("%lf", &nx);
+
+	do {
+		x = nx;
+		fa = a*x*x + b*x - c; //y
+		dfa = 2*a*x + b;		//yの微分
+		printf("f(x) = %lfx + %lf\n", dfa, -dfa*x+fa);
+		nx = (dfa*x - fa)/dfa;
+		i++;
+		if(i >19) {
+			break;
+		}
+	} while ( fa != 0 && i < = 20);
+
+	if(fa == 0) {
+		printf("x = %lfのとき、f(x) = 0 となる。\n",x);
+	}else {
+		printf("解なし。\n");
+	}
+	return 0;
+}
+	
